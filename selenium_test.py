@@ -17,7 +17,7 @@ options.add_argument(f'--user-data-dir={temp_user_data_dir}')  # Avoid profile l
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 try:
-    driver.get("http://10.0.1.48:8081")  # Replace with your real IP/DNS
+    driver.get("http://18.226.186.67:8081")  # Replace with your real IP/DNS
 
     assert "Banking" in driver.title  # Simple title check
     print("Page loaded successfully with title:", driver.title)
