@@ -4,14 +4,12 @@ from selenium.webdriver.chrome.options import Options
 options = Options()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 
-driver = webdriver.Chrome(options=options)
+# Set path to chromedriver explicitly
+driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
 
-try:
-    driver.get("http://10.0.1.48:8081")  # Replace with actual app-server private IP
-    assert "Banking" in driver.title
-    print("Health check passed.")
-except Exception as e:
-    print("Health check failed:", e)
-finally:
-    driver.quit()
+driver.get("http://10.0.1.48:8081")
+assert "Banking" in driver.title
+
+driver.quit()
