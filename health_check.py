@@ -11,7 +11,7 @@ service = Service("/usr/bin/chromedriver")
 driver = webdriver.Chrome(service=service, options=options)
 
 # Your test code here
-driver.get("http://18.226.186.67:8081")
+driver.get("http://localhost:8081")
 print(driver.title)
 print('app is running good')
 
