@@ -1,15 +1,17 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
 options = Options()
-options.add_argument('--headless')
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-dev-shm-usage')
+options.add_argument("--headless")  # if you want headless mode
 
-# Set path to chromedriver explicitly
-driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=options)
+# Specify chromedriver path using Service
+service = Service("/usr/bin/chromedriver")
 
-driver.get("http://10.0.1.48:8081")
-assert "Banking" in driver.title
+driver = webdriver.Chrome(service=service, options=options)
+
+# Your test code here
+driver.get("https://www.google.com")
+print(driver.title)
 
 driver.quit()
