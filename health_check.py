@@ -11,7 +11,8 @@ service = Service("/usr/bin/chromedriver")
 driver = webdriver.Chrome(service=service, options=options)
 
 # Your test code here
-driver.get("https://www.google.com")
+driver.get("http://18.226.186.67:8081")
 print(driver.title)
+print('app is running good')
 
 driver.quit()
